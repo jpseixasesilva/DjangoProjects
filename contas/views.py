@@ -10,4 +10,5 @@ def current_datetime(request):
 
 
 def welcome(request):
+
     return render(request, 'contas/welcome.html')
