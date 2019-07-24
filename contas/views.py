@@ -9,3 +9,5 @@ def current_datetime(request):
     return HttpResponse(html)
 
 
+def welcome(request):
+    return render(request, 'contas/welcome.html')
