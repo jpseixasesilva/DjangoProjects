@@ -8,6 +8,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Transaction(models.Model):
     date = models.DateTimeField()
     description = models.CharField(max_length=200)

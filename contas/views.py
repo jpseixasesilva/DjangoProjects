@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import datetime
 from .models import Transaction
+from .form import TransactionForm
 
 
 def current_datetime(request):
@@ -16,7 +17,18 @@ def welcome(request):
     data['Transaction'] = ['T1add','T2add','T3add']
     return render(request,'contas/welcome.html',data)
 
+
 def crud(request):
     data = {}
     data['Transaction'] = Transaction.objects.all()
     return render(request, 'contas/crud.html', data)
+
+
+def new_transaction(request):
+    data = {}
+    form = TransactionForm(request.POST or None)
+    if form.is_valid():
+            form.save()
+            return redirect('url_crud')
+    data['form'] = form
+    return render(request, 'contas/form.html', data)

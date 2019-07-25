@@ -9,14 +9,12 @@
 </head>
 <body>
 
- <h2>CRUD</h2>
+<form method="POST">
+    {% csrf_token %}
 
-    <ul>
-    {% for Transaction in Transaction %}
-        <li>{{ Transaction.description }} - {{ Transaction.date }} - {{ Transaction.value }}</li>
-    {% endfor %}
-    </ul>
+    {{ form.as_p }}
 
- <a href="{% url 'new_url'%}">New</a>
+    <button type="submit">Save</button>
+</form>
 </body>
 </html>
