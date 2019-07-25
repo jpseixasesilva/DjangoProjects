@@ -43,4 +43,11 @@ def update(request, pk):
             form.save()
             return redirect('url_crud')
     data['form'] = form
+    data['trans_pk'] = transaction_pk
     return render(request, 'contas/form.html', data)
+
+
+def delete(request, pk):
+    transaction_pk = Transaction.objects.get(pk=pk)
+    transaction_pk.delete()
+    return redirect('url_crud')

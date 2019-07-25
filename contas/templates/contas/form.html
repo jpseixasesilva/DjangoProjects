@@ -15,6 +15,8 @@
     {{ form.as_p }}
 
     <button type="submit">Save</button>
+    <a href="{% url 'url_delete' trans_pk.id %}">Delete</a>
 </form>
+
 </body>
 </html>
