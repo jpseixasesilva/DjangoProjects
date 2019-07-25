@@ -8,20 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome !</h1>
 
-    <p>The time now is: {{ date_now }}</p>
+ <h2>CRUD</h2>
 
     <ul>
-        {% for Transaction in Transaction %}
-            {% if Transaction == "T1" %}
-                <li><b>{{ Transaction }}</b></li>
-            {% else %}
-                <li><b>{{ Transaction }} </b></li>
-            {% endif %}
-        {% endfor %}
+    {% for Transaction in Transaction %}
+        <li>{{ Transaction.description }} - {{ Transaction.date }} - {{ Transaction.value }}</li>
+    {% endfor %}
     </ul>
-
-
 </body>
 </html>

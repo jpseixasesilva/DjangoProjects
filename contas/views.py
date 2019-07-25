@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
+from .models import Transaction
 
 
 def current_datetime(request):
@@ -12,5 +13,10 @@ def current_datetime(request):
 def welcome(request):
     data = {}
     data['date_now'] = datetime.datetime.now()
-    data['Transaction'] = ['T1','T2','T3']
-    return render(request, 'contas/welcome.html', data)
+    data['Transaction'] = ['T1add','T2add','T3add']
+    return render(request,'contas/welcome.html',data)
+
+def crud(request):
+    data = {}
+    data['Transaction'] = Transaction.objects.all()
+    return render(request, 'contas/crud.html', data)
