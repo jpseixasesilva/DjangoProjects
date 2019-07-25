@@ -13,7 +13,7 @@
 
     <ul>
     {% for Transaction in Transaction %}
-        <li>{{ Transaction.description }} - {{ Transaction.date }} - {{ Transaction.value }}</li>
+        <li><a href="{% url 'url_update' Transaction.id%}">{{ Transaction.description }} - {{ Transaction.date }} - {{ Transaction.value }}</a></li>
     {% endfor %}
     </ul>
 

@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from contas.views import current_datetime, welcome, crud, new_transaction
+from contas.views import current_datetime, welcome, crud, new_transaction, update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contas/', current_datetime),
     path('welcome/', welcome),
     path('crud/', crud, name='url_crud'),
+    path('update/<int:pk>/', update, name='url_update'),
     path('new/', new_transaction, name='new_url')
 
 ]

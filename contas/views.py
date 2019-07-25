@@ -32,3 +32,15 @@ def new_transaction(request):
             return redirect('url_crud')
     data['form'] = form
     return render(request, 'contas/form.html', data)
+
+
+def update(request, pk):
+    data = {}
+    transaction_pk = Transaction.objects.get(pk=pk)
+    form = TransactionForm(request.POST or None, instance=transaction_pk)
+
+    if form.is_valid():
+            form.save()
+            return redirect('url_crud')
+    data['form'] = form
+    return render(request, 'contas/form.html', data)
