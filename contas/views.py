@@ -10,5 +10,7 @@ def current_datetime(request):
 
 
 def welcome(request):
-
-    return render(request, 'contas/welcome.html')
+    data = {}
+    data['date_now'] = datetime.datetime.now()
+    data['Transaction'] = ['T1','T2','T3']
+    return render(request, 'contas/welcome.html', data)

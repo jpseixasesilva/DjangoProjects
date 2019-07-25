@@ -10,6 +10,17 @@
 <body>
     <h1>Welcome !</h1>
 
+    <p>The time now is: {{ date_now }}</p>
+
+    <ul>
+        {% for Transaction in Transaction %}
+            {% if Transaction == "T1" %}
+                <li><b>{{ Transaction }}</b></li>
+            {% else %}
+                <li><b>{{ Transaction }} </b></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 
 </body>
 </html>
